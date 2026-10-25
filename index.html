@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript Basics assignment: profile, arithmetic, form events, and DOM list manipulation.">
+  <title>Profile Lab | JavaScript Basics</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Profile Lab home">
+      <span class="brand-mark">P</span>
+      <span>profile<span class="brand-accent">lab</span></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#profile">Profile</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#about">About</a>
+    </nav>
+    <span class="topbar-status"><span class="status-dot"></span> JavaScript active</span>
+  </header>
+
+  <main id="home">
+    <section class="hero" id="overview">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> ASSIGNMENT 05 / FRONT-END</p>
+        <h1>Your profile.<br><span>Your rules.</span></h1>
+        <p class="hero-description">A small interactive workspace built with HTML, CSS, and vanilla JavaScript. Update your profile, explore the numbers, and manage your list in real time.</p>
+        <a class="primary-link" href="#profile">Explore the workspace <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Profile dashboard illustration">
+        <div class="orbit orbit-large"></div>
+        <div class="orbit orbit-small"></div>
+        <div class="hero-card">
+          <div class="mini-card-top"><span class="mini-label">YOUR SPACE</span><span class="mini-icon">✳</span></div>
+          <div class="avatar">AB</div>
+          <div class="hero-card-name">Personal dashboard</div>
+          <div class="hero-card-subtitle">One profile. A few possibilities.</div>
+          <div class="mini-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="hero-card-footer"><span><i></i> Live preview</span><span>01 / 05</span></div>
+        </div>
+        <span class="float-tag tag-top">DOM <b>↗</b></span>
+        <span class="float-tag tag-bottom">Made interactive <b>✦</b></span>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Profile statistics">
+      <article class="stat-card">
+        <div class="stat-icon purple">◈</div>
+        <p class="stat-label">Current age</p>
+        <div class="stat-value" id="ageValue">— <span>years</span></div>
+        <p class="stat-note">Calculated from birth year</p>
+      </article>
+      <article class="stat-card">
+        <div class="stat-icon green">⌁</div>
+        <p class="stat-label">Age in months</p>
+        <div class="stat-value" id="monthsValue">— <span>months</span></div>
+        <p class="stat-note">Age × 12 months</p>
+      </article>
+      <article class="stat-card">
+        <div class="stat-icon orange">✳</div>
+        <p class="stat-label">Hobbies</p>
+        <div class="stat-value" id="hobbyCount">— <span>items</span></div>
+        <p class="stat-note">Items in your current list</p>
+      </article>
+    </section>
+
+    <section class="workspace-grid">
+      <article class="panel profile-panel" id="profile">
+        <div class="section-heading">
+          <div><p class="eyebrow">PART 01 / PART 02</p><h2>Personal profile</h2></div>
+          <span class="section-number">01</span>
+        </div>
+        <p class="panel-intro">Your profile is stored in a JavaScript object. Submit the form to update its values and refresh the preview.</p>
+
+        <div class="profile-preview">
+          <div class="profile-avatar" id="profileAvatar">AB</div>
+          <div class="profile-preview-copy">
+            <span class="profile-preview-label">PROFILE PREVIEW</span>
+            <h3 id="displayName">Askar Bavgashev</h3>
+            <p id="displayRole">Developer status: <span class="role-pill">Yes</span></p>
+          </div>
+          <span class="edit-symbol">✎</span>
+        </div>
+
+        <form id="profileForm" novalidate>
+          <div class="form-row">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter your name" value="Askar Bavgashev" maxlength="60" required>
+          </div>
+          <div class="form-row">
+            <label for="birthYear">Birth year</label>
+            <input id="birthYear" name="birthYear" type="number" min="1900" max="2026" placeholder="e.g. 2005" value="2005" required>
+            <small>Enter a year between 1900 and the current year.</small>
+          </div>
+          <button class="button button-primary" type="submit">Update profile <span>↗</span></button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+        <div class="object-note"><span class="code-bracket">{ }</span><span><b>userProfile</b><small>const object · string · number · boolean · array</small></span><span class="live-label">LIVE</span></div>
+      </article>
+
+      <article class="panel list-panel" id="hobbies">
+        <div class="section-heading">
+          <div><p class="eyebrow">PART 03</p><h2>Hobbies & tasks</h2></div>
+          <span class="section-number">02</span>
+        </div>
+        <p class="panel-intro">Add something to your list or remove the last item. The list and hobby counter update together.</p>
+        <div class="list-toolbar"><span class="list-toolbar-label">YOUR LIST</span><span class="item-counter" id="itemCounter">0 ITEMS</span></div>
+        <ul class="hobby-list" id="hobbyList" aria-label="Hobbies and tasks"></ul>
+        <form id="addItemForm" class="add-item-form">
+          <label class="visually-hidden" for="newItem">New hobby or task</label>
+          <input id="newItem" type="text" placeholder="Add a hobby or task..." maxlength="80" required>
+          <button class="add-button" type="submit" aria-label="Add item">+</button>
+        </form>
+        <div class="list-actions">
+          <button class="button button-secondary" id="removeItemButton" type="button">Remove last item <span>−</span></button>
+          <button class="text-button" id="resetListButton" type="button">Reset list</button>
+        </div>
+        <p class="form-message" id="listMessage" role="status" aria-live="polite"></p>
+        <div class="list-footer"><span class="tiny-check">✓</span> Changes appear instantly on this page.</div>
+      </article>
+    </section>
+
+    <section class="code-strip" id="about">
+      <div class="code-strip-icon">JS</div>
+      <div><p class="eyebrow">UNDER THE HOOD</p><h2>Small scripts. Real interaction.</h2><p>This project uses a profile object, arithmetic operators, form events, and DOM methods such as <code>createElement()</code>, <code>appendChild()</code>, and <code>remove()</code>.</p></div>
+      <a href="#overview" class="back-top">Back to top ↑</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">P</span><span>profile<span class="brand-accent">lab</span></span></a>
+    <span>Assignment #5 · JavaScript Basics</span>
+    <span>Askar Bavgashev <span class="footer-dot">•</span> SE-2540</span>
+  </footer>
+</body>
+</html>
