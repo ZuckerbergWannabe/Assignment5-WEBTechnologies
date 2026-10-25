@@ -19,8 +19,6 @@ In `script.js`, the `const userProfile` object stores:
 - `hobbies`: array of strings
 
 **Screenshot:**  
-Add a screenshot showing the profile dashboard and the profile object section here.
-
 ![Task 1 — Personal Info Object](screenshots/task-1.png)
 
 ### Task 2 — Arithmetic Calculations
@@ -28,26 +26,18 @@ Add a screenshot showing the profile dashboard and the profile object section he
 The page calculates the user's approximate age using the current year minus `birthYear`, estimates age in months using age multiplied by 12, and counts the items in the hobbies array. The results appear in the statistics cards and are also printed to the browser console.
 
 **Screenshot:**  
-Add a screenshot showing the statistics cards here.
-
 ![Task 2 — Arithmetic Calculations](screenshots/task-2.png)
 
 ### Task 3 — HTML Form Setup
 
-The profile form contains a username input, a birth-year input, and an **Update profile** submit button. The fields include basic validation.
-
 **Screenshot:**  
-Add a screenshot showing the profile form here.
-
 ![Task 3 — HTML Form](screenshots/task-3.png)
 
 ### Task 4 — Event Listener
 
 A `submit` event listener prevents the default page reload, reads the form values, validates them, and updates `userProfile`. The profile preview and statistics are refreshed after a valid submission.
 
-**Screenshot:**  
-Add a screenshot showing an updated profile after submitting the form here.
-
+**Screenshot:**
 ![Task 4 — Event Listener](screenshots/task-4.png)
 
 ### Task 5 — Creating and Removing Elements
@@ -55,8 +45,6 @@ Add a screenshot showing an updated profile after submitting the form here.
 The hobbies/tasks section uses DOM methods to create and append `<li>` elements. The **Add Item** field adds a new entry, **Remove last item** removes the final entry, and **Reset list** restores the starter list. The item count updates automatically.
 
 **Screenshot:**  
-Add a screenshot showing the list with added items and the remove button here.
-
 ![Task 5 — DOM List Manipulation](screenshots/task-5.png)
 
 ## Work process summary
